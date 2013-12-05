@@ -212,11 +212,35 @@ geo.createTooltipFeature({
 ...
 							</code></pre>
 					</section>
+					<section>						
+						<h2>External Data</h2>
+						<iframe class="stretch" seamless=true frameborder=0 src="api_examples/external.html"></iframe>
+					</section>
+					<section>
+						<h2>External Data Code</h2>
+							<pre><code data-trim>
+...
+var kmlTroncons = new OpenLayers.Layer.Vector("Troncons de Route", {
+	projection: new OpenLayers.Projection("EPSG:4326"),
+	strategies: [new OpenLayers.Strategy.Fixed()],
+	protocol: new OpenLayers.Protocol.HTTP({
+		url: "troncons.kml?t=",
+		format: new OpenLayers.Format.KML({
+			extractStyles: true, 
+			extractAttributes: true,
+		})
+	})
+});
+kmlTroncons.bodid = kmlTroncons.id;
+geo.map.addLayer(kmlTroncons);
+...
+							</code></pre>
+					</section>
 				</section>
 				<section>
 					<section>
 						<h2>Current users</h2>
-						<p><a href="http://www.visitluxembourg.com/en/place/vtt/mtb-trail-bettendorf-reisdorf">VisitLuxembourg</a> | <a href="http://www.cita.lu">CITA</a> | <a href="http://travelplanner.mobiliteit.lu/hafas/cdt/query.exe/fn?ujm=1&">Mobiliteit</a> | <a href="http://www.guichet.public.lu/citoyens/fr/support/contact/accueil/index.html">Guichet Public</a> | Police & Sauvetage (internal) | many more public sector websites</a></p>
+						<p><a href="http://www.visitluxembourg.com/en/place/vtt/mtb-trail-bettendorf-reisdorf">VisitLuxembourg</a> | <a href="http://www.cita.lu">CITA</a> | <a href="http://travelplanner.mobiliteit.lu/hafas/cdt/query.exe/fn?ujm=1&">Mobiliteit</a> | <a href="http://www.guichet.public.lu/citoyens/fr/support/contact/accueil/index.html">Guichet Public</a> | <a href="#">Police & Sauvetage (internal)</a> | <a href="#">many more public sector websites</a></p>
 						<p>Average 5000 visitors per day, but triples if snow/ice on roads!</p>
 						<ul>
 							<li>At the moment, mostly public sector usage</li> 
