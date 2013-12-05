@@ -71,13 +71,32 @@
 						<p>Maps & Mobile Apps | Geodata & Metadata Catalog | National Spatial Data Infrastructure | European SDI - INSPIRE | eCommerce | API & Web Services | Aggregation of Data Providers | Contributions by Users - MyMaps</p>
 					</section>	
 					<section>
-						<h2>maps.geoportail.lu</h2>
+						<h2>map.geoportail.lu</h2>
+						<p>Main Geoportal Interface, with a range of functionalities
+							<ul>
+								<li>Over 200 different layers of geodata</li>
+								<li>Fast and easy navigation (Google Maps style interface)</li>
+								<li>Single Search for addresses, parcels, localities ... </li>
+								<li>MyMaps functionality for user contributed content</li>
+								<li>Thematic portals for specific topics (<a href="http://tourisme.geoportail.lu">tourism</a>, <a href="http://eau.geoportail.lu">water</a>, <a href="http://emwelt.geoportail.lu">environment</a>, <a href="http://agriculture.geoportail.lu">agriculture</a>, transport (work in progress) ...)</li>
+							</ul>	
+						</p>	
+					</section>	
+					<section>
+						<h2>map.geoportail.lu</h2>
 							<iframe class="stretch" seamless=true frameborder=0 src="http://maps.geoportail.lu/"></iframe>
 					</section>
 					<section>
 						<h2>Mobile App</h2>
 							<iframe style="margin: auto;" width="400px" height="600px" seamless=true frameborder=0 src="http://m.geoportail.lu/"></iframe>
 					</section>
+					<section>
+						<h2>Usage Statistics</h2>
+						<p>Desktop Portals mostly used during working hours, mobile app on weekends & evenings
+							<img style="background: none; border: none; box-shadow: none;" src="images/map.geoportail.lu-2months.png"/>
+							<img style="background: none; border: none; box-shadow: none;" src="images/mobile.app-2months.png"/>
+						</p>	
+					</section>	
 					<section>
 						<h2>Data Catalogue</h2>
 						<p>Structured metadata catalogue & search for all geodata layers hosted by the geoportal
@@ -98,7 +117,16 @@
 							</ul>	
 						</p>	
 					</section>	
-
+					<section>
+						<h2>INSPIRE</h2>
+						<p>EU Directive for a pan-european Spatial Data Infrastructure. 
+							<ul>
+								<li>Standardised discovery, view and download services for geodata</li>
+								<li>Geoportail.lu is Contact Point and de-facto Luxembourg SDI</li>
+								<li>INSPIRE discovery and view services: <a href="http://inspire.geoportal.lu">inspire.geoportal.lu</a></li>
+							</ul>	
+						</p>	
+					</section>	
 				</section>	
 				<section>
 					<section>
@@ -111,7 +139,7 @@
 						<ul>
 							<li>GeoAPI: Javascript Mapping API with 100's of geodata layers</li>
 							<li>POI Manager: web-based Points of Interest data & manager</li>
-							<li>Location search, Geocoding & Reverse Geocoding services</li>
+							<li>Location search, Routing, Geocoding & Reverse Geocoding services</li>
 							<li>WMS & WFS webservices</li>
 							<li>Customised geodata licensing & services</li>
 						</ul>
@@ -127,9 +155,9 @@
 						<li>
 							Official Addresses, Cadastral Parcels & Topographic maps.
 						</li>
-<li>
-High resolution aerial imagery, both current and historic
-</li>
+						<li>
+						High resolution aerial imagery, both current and historic
+						</li>
 						<li>
 						100's of geodata layers for specific themes (environment, land use, tourism, transport ...)	
 						</li>
@@ -152,8 +180,9 @@ High resolution aerial imagery, both current and historic
 						<iframe class="stretch" seamless=true frameborder=0 src="api_examples/simple.html"></iframe>
 					</section>
 					<section>
-						<h2>Example code</h2>
+						<h2>Live API example code</h2>
 							<pre><code data-trim>
+...
 geo = new geoadmin.API({lang: 'fr'});
 geo.createMap({
   div: 'map',
@@ -162,19 +191,43 @@ geo.createMap({
   zoom: 8,
   bgLayer: 'webbasemap'
 });
+...
+							</code></pre>
+					</section>
+					<section>						
+						<h2>Layers & PopupWindow</h2>
+						<iframe class="stretch" seamless=true frameborder=0 src="api_examples/layers.html"></iframe>
+					</section>
+					<section>
+						<h2>Layers & PopupWindow Code</h2>
+							<pre><code data-trim>
+...
+geo.addLayerToMap('arrets_bus');
+geo.map.getLayersBy('layername','arrets_bus')[0].setVisibility(true);
+
+geo.createTooltipFeature({
+  tooltipUrl:'http://map.geoportail.lu/bodfeature/search',
+  requestOnlyVisibleLayers:true
+});
+...
 							</code></pre>
 					</section>
 				</section>
 				<section>
 					<section>
-						<h2>Live API example</h2>
-						<iframe class="stretch" seamless=true frameborder=0 src="api_examples/simple.html"></iframe>
-					</section>
+						<h2>Current users</h2>
+						<p><a href="http://www.visitluxembourg.com/en/place/vtt/mtb-trail-bettendorf-reisdorf">VisitLuxembourg</a> | <a href="http://www.cita.lu">CITA</a> | <a href="http://travelplanner.mobiliteit.lu/hafas/cdt/query.exe/fn?ujm=1&">Mobiliteit</a> | <a href="http://www.guichet.public.lu/citoyens/fr/support/contact/accueil/index.html">Guichet Public</a> | Police & Sauvetage (internal) | many more public sector websites</a></p>
+						<p>Average 5000 visitors per day, but triples if snow/ice on roads!</p>
+						<ul>
+							<li>At the moment, mostly public sector usage</li> 
+							<li>Want to promote private collaborations</li>
+						</ul>
+						
+					</section>	
 				</section>
-				
+
 
 			</div>
-
 		</div>
 
 		<script src="reveal/lib/js/head.min.js"></script>
